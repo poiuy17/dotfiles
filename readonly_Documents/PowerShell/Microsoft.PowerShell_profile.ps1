@@ -1,6 +1,9 @@
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
+$env:EDITOR = "nvim"
+$env:VISUAL = "code"
+
 # ohmyposh
 Import-Module posh-git
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_lean.omp.json" | Invoke-Expression
