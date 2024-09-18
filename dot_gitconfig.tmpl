@@ -1,0 +1,23 @@
+[user]
+	name = poiuy17
+	email = {{ .email }}
+
+[alias]
+	br = branch
+	ca = commit -a --amend --no-edit
+	cm = commit --message
+	co = checkout
+	st = status
+	sts = status -s
+	lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[color]
+	ui = true
+
+[diff]
+	colormoved = "default"
+	colormovedws = "allow-indentation-change"
+
+[init]
+	defaultBranch = main
+

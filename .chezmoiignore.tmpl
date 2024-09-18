@@ -1,0 +1,13 @@
+README.md
+{{ if ne .chezmoi.os "windows" }}
+.config/powershell
+Documents
+{{ else }}
+bash
+shell
+zsh
+.tmux.conf
+.bash_profile
+.bashrc
+.zshrc
+{{ end }}

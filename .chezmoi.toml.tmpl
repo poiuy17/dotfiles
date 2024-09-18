@@ -1,0 +1,9 @@
+{{- $email := promptStringOnce . "email" "Git user.email" -}}
+
+[data]
+  email = {{ $email | quote }}
+
+[cd]
+  command = "pwsh"
+  args = ["-NoProfile", "-NoLogo"]
+

@@ -1,0 +1,11 @@
+# Settings
+[[ -f ~/.bash/settings.bash ]] && source ~/.bash/settings.bash
+
+# Custom prompt
+[[ -f ~/.bash/prompt.bash ]] && source ~/.bash/prompt.bash
+
+# Aliases
+[[ -f ~/.shell/aliases.sh ]] && source ~/.shell/aliases.sh
+
+# External settings
+[[ -f ~/.shell/external.sh ]] && source ~/.shell/external.sh
