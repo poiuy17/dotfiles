@@ -32,7 +32,7 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.initial_cols = 150
 -- Key Bingind
 config.disable_default_key_bindings = true
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
   -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
   { key = 'a', mods = 'LEADER|CTRL',  action = wezterm.action { SendString = "\x01" } },
@@ -44,7 +44,7 @@ config.keys = {
   { key = "j", mods = "LEADER",       action = wezterm.action.ActivatePaneDirection("Down"), },
 
   { key = '-', mods = "LEADER",       action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" }, }), },
-  { key = '|', mods = "LEADER|SHIFT", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" }, }), },
+  { key = '=', mods = "LEADER|SHIFT", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" }, }), },
 
   -- { key = "H", mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Left", 5 } } },
   -- { key = "J", mods = "LEADER|SHIFT", action = wezterm.action { AdjustPaneSize = { "Down", 5 } } },
