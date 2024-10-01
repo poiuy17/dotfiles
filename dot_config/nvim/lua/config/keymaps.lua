@@ -16,7 +16,7 @@ vim.keymap.set("n", "L", "$", opts)
 vim.keymap.set("v", "H", "^", opts)
 vim.keymap.set("v", "L", "$", opts)
 
--- [Visual] Stay in indent mode
+-- better indent handling
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 

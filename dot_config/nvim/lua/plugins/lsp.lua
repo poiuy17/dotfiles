@@ -33,13 +33,13 @@ return {
           end
 
 
-          keymap('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-          -- keymap('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+          -- keymap('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          keymap('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
           keymap('n', 'K', vim.lsp.buf.hover, 'hover')
-          keymap("n", "gi", vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-          keymap("n", "gh", vim.lsp.buf.signature_help, 'Signature Help')
+          -- keymap("n", "gi", vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+          -- keymap("n", "gh", vim.lsp.buf.signature_help, 'Signature Help')
 
-          keymap('n', '<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
+          keymap('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           keymap('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           -- keymap('n', '<leader>gr', vim.lsp.buf.references, '[G]oto [R]eferences')
 
@@ -59,20 +59,16 @@ return {
               group = highlight_augroup,
               callback = vim.lsp.buf.clear_references,
             })
-
           end
         end,
       })
-
-
-
-
 
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
+        -- TODO
         lua_ls = {},
       }
 
@@ -93,11 +89,10 @@ return {
       })
 
 
-
-
       mason_lspconfig.setup({
         -- list of servers for mason to install
         ensure_installed = {
+          -- TODO
           "lua_ls",
         },
       })
