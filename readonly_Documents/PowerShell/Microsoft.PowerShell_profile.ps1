@@ -1,9 +1,11 @@
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
+$env:EDITOR = "nvim"
+$env:VISUAL = "code"
+
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_lean.omp.json" | Invoke-Expression
 oh-my-posh init pwsh --config "$HOME\.config\ohmyposh\themes\myposhtheme.omp.json" | Invoke-Expression
-
 
 # posh-git
 Import-Module posh-git -ErrorAction SilentlyContinue
@@ -12,7 +14,6 @@ if (!(Get-Module "posh-git")) {
 	Install-Module -Name posh-git -Scope CurrentUser -Force
 	Import-Module posh-git
 }
-
 
 # PSReadLine
 Import-Module PSReadLine
@@ -26,7 +27,6 @@ Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-
 
 # ZLocation
 Import-Module ZLocation
