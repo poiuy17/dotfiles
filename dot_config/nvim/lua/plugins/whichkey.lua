@@ -14,11 +14,5 @@ return {
       border = "none", -- none, single, double, shadow
       title = false
     },
-    spec = {
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>h', group = 'Git [H]unk' },
-      { "[",         group = "prev" },
-      { "]",         group = "next" },
-    },
   },
 }

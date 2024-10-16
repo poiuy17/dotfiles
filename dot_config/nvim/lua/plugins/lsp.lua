@@ -8,14 +8,21 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
+      local cmp_lsp = require("cmp_nvim_lsp")
+
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        cmp_lsp.default_capabilities()
+      )
 
 
       vim.keymap.set("n", "gl", vim.diagnostic.open_float)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+
       -- diagnostic
       vim.diagnostic.config({ virtual_text = false, underline = false })
 
@@ -43,9 +50,7 @@ return {
           keymap('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           -- keymap('n', '<leader>gr', vim.lsp.buf.references, '[G]oto [R]eferences')
 
-
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -62,16 +67,6 @@ return {
           end
         end,
       })
-
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
-      local servers = {
-        -- TODO
-        lua_ls = {},
-      }
-
 
       -- enable mason and configure icons
       require("mason").setup({
@@ -92,19 +87,38 @@ return {
       mason_lspconfig.setup({
         -- list of servers for mason to install
         ensure_installed = {
-          -- TODO
           "lua_ls",
         },
-      })
 
-      mason_lspconfig.setup_handlers({
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
 
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
+          lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+              capabilities = capabilities,
+              settings = {
+
+                Lua = {
+                  hint = {
+                    enable = true,
+                    arrayIndex = "Auto",
+                    await = true,
+                    paramName = "All",
+                    paramType = true,
+                    semicolon = "SameLine",
+                    setType = false,
+                  },
+                },
+              }
+            })
+          end
+
+        }
       })
-    end
-  }
+    end,
+  },
 }

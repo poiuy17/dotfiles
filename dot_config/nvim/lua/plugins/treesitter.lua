@@ -4,8 +4,10 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = {
-      -- TODO
       "lua",
+      "c",
+      "vim",
+      "python"
     },
     sync_install = false,
     highlight = {
