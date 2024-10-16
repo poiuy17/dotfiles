@@ -3,7 +3,7 @@ vim.g.maplocalleader = ' '
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
+vim.keymap.set('n', '<Esc><Esc>', '<cmd>nohlsearch<CR>', opts)
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
 vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
