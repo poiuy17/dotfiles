@@ -2,7 +2,6 @@ if vim.g.vscode then
   -- VSCode Neovim
   require "config.vscode_keymaps"
 else
-  -- Ordinary Neovim
   require("config.keymaps")
   require("config.options")
   require("config.autocmds")
