@@ -4,7 +4,7 @@
 $env:EDITOR = "code"
 $env:VISUAL = "code"
 
-oh-my-posh init pwsh --config "$HOME\.config\ohmyposh\themes\myposhtheme.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 # posh-git
 Import-Module posh-git -ErrorAction SilentlyContinue
