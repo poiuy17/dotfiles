@@ -51,5 +51,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey ',' autosuggest-accept
 
+# homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-. "$HOME/.local/bin/env"
