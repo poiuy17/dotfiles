@@ -4,7 +4,8 @@
 $env:EDITOR = "code"
 $env:VISUAL = "code"
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/gruvbox.omp.json" | Invoke-Expression
+# oh-my-posh
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/gruvbox.omp.json" | Invoke-Expression
 
 # posh-git
 Import-Module posh-git -ErrorAction SilentlyContinue
@@ -26,3 +27,6 @@ Remove-Item alias:\ls
 Set-Alias ls gcifw
 Set-Alias la gcia
 Set-Alias ll Get-ChildItem
+
+# starship
+Invoke-Expression (&starship init powershell)
