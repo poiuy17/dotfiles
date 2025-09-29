@@ -10,7 +10,7 @@ $env:VISUAL = "code"
 # posh-git
 Import-Module posh-git -ErrorAction SilentlyContinue
 # ZLocation
-Import-Module ZLocation
+# Import-Module ZLocation
 # PSReadLine
 Import-Module PSReadLine
 
